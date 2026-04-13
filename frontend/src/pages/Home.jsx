@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     // In production we would use the dynamic proxy or env variable
-    fetch('http://localhost:5000/api/events')
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/events`)
       .then(res => res.json())
       .then(data => {
         setEvents(data);

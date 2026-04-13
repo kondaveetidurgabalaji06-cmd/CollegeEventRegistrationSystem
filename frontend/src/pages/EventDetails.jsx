@@ -18,7 +18,7 @@ const EventDetails = () => {
   const [status, setStatus] = useState({ type: '', message: '' });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/events/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/events/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Event not found');
         return res.json();
@@ -43,7 +43,7 @@ const EventDetails = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const res = await fetch('http://localhost:5000/api/register', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
