@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const dns = require('dns');
 
@@ -9,7 +10,7 @@ try {
 }
 
 // URL encode the password since it contains an '@' character (balaji@123 -> balaji%40123)
-const uri = "mongodb+srv://balaji:balaji%40123@cluster0.rv2awwn.mongodb.net/collegeEvents?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI || "mongodb+srv://balaji:balaji%40123@cluster0.rv2awwn.mongodb.net/collegeEvents?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
